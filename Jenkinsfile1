@@ -1,0 +1,17 @@
+pipeline {
+    agent {
+        docker { image 'ubuntu:18.04' }
+    }
+    stages {
+        stage('Install PHP') {
+            steps {
+                sh 'apt install php'
+            }
+        }
+         stage('PHP version') {
+             steps {
+                sh 'php -v'             
+               }
+        }
+    }
+}
