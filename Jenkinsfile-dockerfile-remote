@@ -1,0 +1,19 @@
+pipeline{
+    agent any
+    stages{
+        stage('Copy Dockerfile'){
+            steps{
+                script{
+                    sh 'scp -r -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/deploy-docker-on-remotehost/Dockerfile root@18.188.77.10:/root/'
+                }
+            }
+        }
+        stage('build docker on remote'){
+            steps{
+                script{
+                    sh 'ssh -o StrictHostKeyChecking=no root@18.188.77.10 docker build /root/ -t remote-dockerfile'
+                }
+            }
+        }
+    }
+}
