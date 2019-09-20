@@ -18,7 +18,7 @@ pipeline{
         stage('create container on remote host'){
             steps{
                 script{
-                    sh 'ssh -o StrictHostKeyChecking=no root@18.216.166.195 docker run -itd --name=Created-from-Dockerfile -p 80:8080 remote-dockerfile bash'
+                    sh 'ssh -o StrictHostKeyChecking=no root@18.216.166.195 docker run -itd --name=Created-from-Dockerfile -p 80:80 remote-dockerfile bash'
                 }
             }
         }
