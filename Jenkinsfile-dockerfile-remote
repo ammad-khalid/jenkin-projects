@@ -4,7 +4,7 @@ pipeline{
         stage('Copy Dockerfile'){
             steps{
                 script{
-                    sh 'scp -r -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/deploy-dockerfile-on-remotehost/* root@18.188.77.10:/root/'
+                    sh 'scp -r -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/deploy-dockerfile-on-remotehost/* root@18.216.166.195:/root/'
                 }
             }
         }
