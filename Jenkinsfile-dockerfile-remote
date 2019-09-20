@@ -15,5 +15,12 @@ pipeline{
                 }
             }
         }
+        stage('create container'){
+            steps{
+                script{
+                    sh 'ssh -o StrictHostKeyChecking=no root@18.216.166.195 docker run -itd remote-dockerfile -p 80:8080'
+                }
+            }
+        }
     }
 }
