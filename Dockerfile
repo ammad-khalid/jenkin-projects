@@ -6,6 +6,7 @@ Run apt install vim -y
 Run mkdir /root/git-repo/
 Run git clone https://github.com/ammad-khalid/jenkin-projects.git /root/git-repo/
 Run cp /root/git-repo/index.html /var/www/html/
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+CMD apachectl -D FOREGROUND
+#CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 # Copy /root/index.html /var/www/html
 Expose 80
