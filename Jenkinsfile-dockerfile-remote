@@ -1,20 +1,26 @@
 pipeline{
     agent any
     stages{
-        stage('Copy Dockerfile'){
+        stage('Copy Dockerfile on remotehost from Jenkins Workspace'){
             steps{
                 script{
                     sh 'scp -r -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/deploy-dockerfile-on-remotehost/Dockerfile root@18.216.166.195:/root/'
                 }
             }
         }
-        stage('build docker on remote host'){
+        stage('build docker image on remote host'){
             steps{
                 script{
                     sh 'ssh -o StrictHostKeyChecking=no root@18.216.166.195 docker build /root/ -t remote-dockerfile'
                 }
             }
         }
-        
+        stage('create container on remote host'){
+            steps{
+                script{
+                    sh 'ssh -o StrictHostKeyChecking=no root@18.216.166.195 docker run -itd --name=Created-from-Dockerfile -p 80:8080 remote-dockerfile bash'
+                }
+            }
+        }
     }
 }
