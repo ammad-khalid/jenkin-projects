@@ -6,6 +6,6 @@ Run apt install vim -y
 Run mkdir /root/git-repo/
 Run git clone https://github.com/ammad-khalid/jenkin-projects.git /root/git-repo/
 Run cp /root/git-repo/index.html /var/www/html/
-Run service apache2 start
+CMD ["/usr/sbin/apache2","-D","FOREGROUND"]
 # Copy /root/index.html /var/www/html
 Expose 80
