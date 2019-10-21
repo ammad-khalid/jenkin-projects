@@ -13,5 +13,5 @@ phases:
       - echo "Building Done"
 artifacts:
   files:
-    - appspec.yaml
+    - '**/*'
 base-directory: dist
