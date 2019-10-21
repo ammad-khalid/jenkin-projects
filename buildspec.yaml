@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - apt install apache
+  build:
+    commands:
+      - echo "Building"
+  post_build:
+    commands:
+      - echo "Building Done"
+artifacts:
+  files:
+    - appspec.yaml
+base-directory: dist
