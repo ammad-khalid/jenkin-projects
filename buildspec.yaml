@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
-      - apt install apache2
+      - apt install apache2 -y
   build:
     commands:
       - echo "Building"
